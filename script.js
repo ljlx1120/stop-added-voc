@@ -31,9 +31,9 @@ var options = {
 };
 
 function calculateStopAddedVOC(options) {
-  options.trafficAffected.passengerVehicles = parseInt(options.totalAffected * options.passengerContribution);
-  options.trafficAffected.singleTrucks = parseInt(options.totalAffected * options.truckContribution);
-  options.trafficAffected.comboTrucks = parseInt(options.totalAffected * options.comboContribution);
+  options.trafficAffected.passengerVehicles = Math.round(options.totalAffected * options.passengerContribution);
+  options.trafficAffected.singleTrucks = Math.round(options.totalAffected * options.truckContribution);
+  options.trafficAffected.comboTrucks = Math.round(options.totalAffected * options.comboContribution);
 
   options.results.passengerStopAddedVOC = parseFloat((options.trafficAffected.passengerVehicles * options.passengerStopAddedCost / 1000).toFixed(2));
   options.results.truckStopAddedVOC = parseFloat((options.trafficAffected.singleTrucks * options.truckStopAddedCost / 1000).toFixed(2));
